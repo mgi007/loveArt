@@ -19,5 +19,6 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         navigator.addFragment(HomeFragment(), R.id.fragmentContainerHome)
+        setSupportActionBar(findViewById(R.id.toolbar))
     }
 }

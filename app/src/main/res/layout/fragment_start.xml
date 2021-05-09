@@ -44,7 +44,7 @@
                 android:layout_marginEnd="@dimen/space_medium"
                 android:layout_centerHorizontal="true"
                 android:text="Log In"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:onClick="@{() -> viewModel.login.invoke()}"/>
 
             <Button
@@ -55,8 +55,7 @@
                 android:layout_marginStart="@dimen/space_medium"
                 android:layout_marginEnd="@dimen/space_medium"
                 android:text="Sig In with Google"
-                android:background="@color/colorBlack"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:onClick="@{() -> viewModel.email.invoke()}"/>
 
             <Button
@@ -69,7 +68,7 @@
                 android:layout_alignStart="@+id/button"
                 android:layout_below="@+id/button"
                 android:text="Sig In with Facebook"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:onClick="@{() -> viewModel.facebook.invoke()}"/>
 
             <Button
@@ -79,7 +78,7 @@
                 android:layout_marginStart="@dimen/space_medium"
                 android:layout_marginEnd="@dimen/space_medium"
                 android:text="Sig In with Tweeter"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:onClick="@{() -> viewModel.tweeter.invoke()}"/>
 
         </LinearLayout>

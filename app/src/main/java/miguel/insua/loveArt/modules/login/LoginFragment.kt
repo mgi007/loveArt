@@ -1,11 +1,14 @@
 package miguel.insua.loveArt.modules.login
 
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.fragment_login.*
 import miguel.insua.loveArt.R
 import miguel.insua.loveArt.databinding.FragmentLoginBinding
 import miguel.insua.loveArt.modules.base.BaseFragment
+import miguel.insua.loveArt.modules.home.HomeActivity
 import miguel.insua.loveArt.modules.home.HomeFragment
 import miguel.insua.loveArt.modules.start.StartFragment
 
@@ -26,11 +29,19 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>(
 
 
     private fun ejemplo() {
-        navigator.navigate(HomeFragment(), false, HomeFragment().LOG_TAG, container = R.id.fragmentContainerMain)
+        val ok = loginOk()
+        if (ok) {
+            val intent = Intent(activity?.applicationContext, HomeActivity::class.java)
+            navigator.navigateToActivity(intent, Bundle())
+        }
     }
 
     private fun back() {
         navigator.navigate(StartFragment(), false, StartFragment().LOG_TAG, container = R.id.fragmentContainerMain)
+    }
+
+    private fun loginOk(): Boolean {
+        return true
     }
 
 }

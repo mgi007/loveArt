@@ -2,9 +2,12 @@ package miguel.insua.loveArt.modules.home
 
 
 import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
+import kotlinx.android.synthetic.main.fragment_home.*
 import miguel.insua.loveArt.R
 import miguel.insua.loveArt.databinding.FragmentHomeBinding
 import miguel.insua.loveArt.modules.base.BaseFragment
+import org.jetbrains.anko.internals.AnkoInternals.createAnkoContext
 
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
@@ -17,5 +20,15 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
 
     override fun viewCreated(view: View?) {
         mBinding.viewModel = viewModel
+        initHomeAdapter()
+        viewModel.refreshData()
+    }
+
+    private fun initHomeAdapter() {
+        val layoutManager = GridLayoutManager(context, 1)
+        recycler_view.layoutManager = layoutManager
+        val appContext = requireContext().applicationContext
+        recycler_view.adapter = HomeAdapter(appContext)
+        viewModel.adapter = recycler_view.adapter as HomeAdapter
     }
 }

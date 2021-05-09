@@ -6,22 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="miguel.insua.loveArt.modules.home.HomeViewModel" />
+            type="miguel.insua.loveArt.modules.example.ExampleViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"
-        tools:context="miguel.insua.loveArt.modules.home.HomeFragment">
+        tools:context="miguel.insua.loveArt.modules.example.ExampleFragment">
 
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:listitem="@layout/little_item"
-            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
