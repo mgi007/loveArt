@@ -1,6 +1,7 @@
 package miguel.insua.loveArt.modules.siEmail
 
 
+import Valid
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
@@ -35,12 +36,9 @@ class SiEmailFragment : BaseFragment<SiEmailViewModel, FragmentSiEmailBinding>(
 
 
     private fun ejemplo() {
-        var ok = !(etEmail.text.toString().equals("") || etPassword.text.toString().equals("") || etConfirmPassword.text.toString().equals(""))
-        if (ok) {
-            if (!etPassword.text.toString().equals(etConfirmPassword.text.toString())) {
-                ok = false
-            }
-        }
+        var valid: Valid = Valid
+
+        var ok = ( valid.isEmailValid(etEmail.text.toString()) && valid.isPasswordValid(etPassword.text.toString()) && etPassword.text.toString().equals(etConfirmPassword.text.toString()) )
         if (ok) {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(
                 etEmail.text.toString(),
@@ -59,6 +57,8 @@ class SiEmailFragment : BaseFragment<SiEmailViewModel, FragmentSiEmailBinding>(
                 }
                 navigator.navigateToActivity(intent, Bundle())
             }
+        } else {
+            showAlert()
         }
     }
 
