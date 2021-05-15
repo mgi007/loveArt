@@ -33,4 +33,7 @@
     <string name="data_invalid_error">Debes completar todos los datos, la edad y el género</string>
     <string name="uses_terms_error">May accept uses terms</string>
     <string name="acces_with_email">Accede con tu email</string>
+    <string name="sign_in_with_email">Registrate con tu email</string>
+    <string name="sign_in">Registrarse</string>
+
 </resources>

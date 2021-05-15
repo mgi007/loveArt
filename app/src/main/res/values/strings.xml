@@ -33,5 +33,7 @@
     <string name="data_invalid_error">You may complete all the form, your age and your gender</string>
     <string name="uses_terms_error">May accept uses terms</string>
     <string name="acces_with_email">Acces with your email</string>
+    <string name="sign_in_with_email">Sign in with your email</string>
+    <string name="sign_in">Sign in</string>
 
 </resources>

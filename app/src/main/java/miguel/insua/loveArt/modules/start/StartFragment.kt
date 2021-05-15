@@ -6,6 +6,7 @@ import miguel.insua.loveArt.R
 import miguel.insua.loveArt.databinding.FragmentStartBinding
 import miguel.insua.loveArt.modules.base.BaseFragment
 import miguel.insua.loveArt.modules.login.LoginFragment
+import miguel.insua.loveArt.modules.siEmail.SiEmailFragment
 
 
 class StartFragment : BaseFragment<StartViewModel, FragmentStartBinding>(
@@ -29,7 +30,7 @@ class StartFragment : BaseFragment<StartViewModel, FragmentStartBinding>(
     }
 
     private fun email() {
-
+        navigator.navigate(SiEmailFragment(), false, SiEmailFragment().LOG_TAG, container = R.id.fragmentContainerMain)
     }
 
     private fun facebook() {
