@@ -20,7 +20,8 @@
             android:id="@+id/midTableLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
 
             <TextView
                 android:id="@+id/tvLoginWithEmailHeading"
@@ -29,7 +30,7 @@
                 android:layout_marginTop="@dimen/space_biggest"
                 android:layout_marginBottom="@dimen/space_biggest"
                 android:fontFamily="@font/roboto_light"
-                android:text="@string/acces_with_email"
+                android:text="@string/start"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp" />
@@ -43,43 +44,20 @@
                 android:layout_marginStart="@dimen/space_medium"
                 android:layout_marginEnd="@dimen/space_medium"
                 android:layout_centerHorizontal="true"
-                android:text="Log In"
+                android:text="@string/acces_with_email"
                 android:textColor="@color/colorBlack"
-                android:onClick="@{() -> viewModel.login.invoke()}"/>
+                android:onClick="@{() -> viewModel.logIn.invoke()}"/>
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/buttonEmailLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/space_big"
                 android:layout_marginStart="@dimen/space_medium"
                 android:layout_marginEnd="@dimen/space_medium"
-                android:text="Sig In with Google"
+                android:text="@string/sign_in_with_email"
                 android:textColor="@color/colorBlack"
                 android:onClick="@{() -> viewModel.email.invoke()}"/>
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/space_big"
-                android:layout_marginStart="@dimen/space_medium"
-                android:layout_marginEnd="@dimen/space_medium"
-                android:layout_alignStart="@+id/button"
-                android:layout_below="@+id/button"
-                android:text="Sig In with Facebook"
-                android:textColor="@color/colorBlack"
-                android:onClick="@{() -> viewModel.facebook.invoke()}"/>
-
-            <Button
-                android:id="@+id/button13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_medium"
-                android:layout_marginEnd="@dimen/space_medium"
-                android:text="Sig In with Tweeter"
-                android:textColor="@color/colorBlack"
-                android:onClick="@{() -> viewModel.tweeter.invoke()}"/>
 
         </LinearLayout>
 

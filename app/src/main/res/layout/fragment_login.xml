@@ -131,7 +131,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             android:text="@string/login"
-                            android:onClick="@{() -> viewModel.ejemplo.invoke()}"/>
+                            android:onClick="@{() -> viewModel.logIn.invoke()}"/>
 
                     </LinearLayout>
                 </LinearLayout>

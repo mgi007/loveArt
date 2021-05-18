@@ -19,13 +19,11 @@ class StartFragment : BaseFragment<StartViewModel, FragmentStartBinding>(
 
     override fun viewCreated(view: View?) {
         mBinding.viewModel = viewModel
-        viewModel.login = ::login
+        viewModel.logIn = ::logIn
         viewModel.email = ::email
-        viewModel.facebook = ::facebook
-        viewModel.tweeter = ::tweeter
     }
 
-    private fun login() {
+    private fun logIn() {
         navigator.navigate(LoginFragment(), false, LoginFragment().LOG_TAG, container = R.id.fragmentContainerMain)
     }
 
@@ -33,11 +31,4 @@ class StartFragment : BaseFragment<StartViewModel, FragmentStartBinding>(
         navigator.navigate(SiEmailFragment(), false, SiEmailFragment().LOG_TAG, container = R.id.fragmentContainerMain)
     }
 
-    private fun facebook() {
-
-    }
-
-    private fun tweeter() {
-
-    }
 }

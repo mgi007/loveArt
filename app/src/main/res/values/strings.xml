@@ -35,5 +35,8 @@
     <string name="acces_with_email">Acces with your email</string>
     <string name="sign_in_with_email">Sign in with your email</string>
     <string name="sign_in">Sign in</string>
-
+    <string name="start">Sign in</string>
+    <string name="log_out">Log out</string>
+    <string name="my_lists">My lists</string>
+    <string name="go_to_home">Home</string>
 </resources>

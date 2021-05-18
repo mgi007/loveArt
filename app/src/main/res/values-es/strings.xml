@@ -35,5 +35,8 @@
     <string name="acces_with_email">Accede con tu email</string>
     <string name="sign_in_with_email">Registrate con tu email</string>
     <string name="sign_in">Registrarse</string>
-
+    <string name="start">Accede con tu usuario o registrate</string>
+    <string name="log_out">Cerrar sesión</string>
+    <string name="my_lists">Mis listas</string>
+    <string name="go_to_home">Inicio</string>
 </resources>
