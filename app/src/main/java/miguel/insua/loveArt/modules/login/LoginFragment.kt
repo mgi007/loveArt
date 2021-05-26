@@ -46,7 +46,7 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>(
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
                     val intent = Intent(activity?.applicationContext, HomeActivity::class.java).apply {
-                        putExtra("uid", auth.currentUser?.uid)
+                        putExtra("user", auth.currentUser?.uid)
                     }
                     navigator.navigateToActivity(intent, Bundle())
                 } else {

@@ -103,13 +103,10 @@ class SiEmailFragment : BaseFragment<SiEmailViewModel, FragmentSiEmailBinding>(
                     val user = auth.currentUser
                     val db = FirebaseFirestore.getInstance()
                     if (user != null) {
-                        var lists: ArrayList<String> = arrayListOf<String>()
                         db.collection("users").document(user.uid).set(
                             hashMapOf(
                                 "id" to user.uid,
-                                "email" to user.email,
-                                "password" to password,
-                                "lists" to lists
+                                "email" to user.email
                             )
                         )
                         val intent =

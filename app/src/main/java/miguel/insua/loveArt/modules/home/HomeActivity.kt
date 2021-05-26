@@ -19,7 +19,7 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>(
 
     lateinit var uid: String
 
-    private lateinit var fragmentState: FragmentState
+    var fragmentState: FragmentState = FragmentState.HOME
 
     override fun getLayoutRes(): Int {
         return R.layout.activity_home
@@ -33,8 +33,11 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>(
         super.onCreate(savedInstanceState)
         uid = intent.extras?.getString("uid").toString()
         Toolbar().show(this, title = "Home", false)
-        navigator.addFragment(HomeFragment(), R.id.fragmentContainerHome)
-        fragmentState = FragmentState.HOME
+        if (fragmentState == FragmentState.HOME) {
+            navigator.addFragment(HomeFragment(), R.id.fragmentContainerHome)
+        } else if (fragmentState == FragmentState.LISTS) {
+            navigator.addFragment(ListsFragment(), R.id.fragmentContainerHome)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -39,4 +39,8 @@
     <string name="log_out">Log out</string>
     <string name="my_lists">My lists</string>
     <string name="go_to_home">Home</string>
+    <string name="new_list">New list</string>
+    <string name="input_list_name">List name</string>
+    <string name="create_list">Create</string>
+    <string name="search_movies">Search movies, series or TV shows</string>
 </resources>

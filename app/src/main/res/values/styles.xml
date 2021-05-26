@@ -51,4 +51,13 @@
         parent= "android:style/Widget.Material.RatingBar.Indicator">
     </style>
 
+    <style name="Custom_SearchView">
+        <item name="android:editTextColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="background">@color/colorAccent</item>
+        <item name="iconifiedByDefault">false</item>
+    </style>
+
 </resources>

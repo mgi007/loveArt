@@ -39,4 +39,8 @@
     <string name="log_out">Cerrar sesión</string>
     <string name="my_lists">Mis listas</string>
     <string name="go_to_home">Inicio</string>
+    <string name="new_list">Nueva lista</string>
+    <string name="input_list_name">Nombre de la lista</string>
+    <string name="create_list">Crear</string>
+    <string name="search_movies">Busca películas, series o programas de TV</string>
 </resources>
