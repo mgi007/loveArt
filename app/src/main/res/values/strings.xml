@@ -43,4 +43,15 @@
     <string name="input_list_name">List name</string>
     <string name="create_list">Create</string>
     <string name="search_movies">Search movies, series or TV shows</string>
+    <string name="release_date">Release date: </string>
+    <string name="original_language">Original language: </string>
+    <string name="vote_count">Rating number: </string>
+    <string name="error_loading_popular">Error loading movies</string>
+    <string name="home">Home</string>
+    <string-array name="select_movie_query">
+        <item>Popular</item>
+        <item>Now playing</item>
+        <item>Top rated</item>
+        <item>Upcomming</item>
+    </string-array>
 </resources>

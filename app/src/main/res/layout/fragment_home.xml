@@ -18,14 +18,17 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/search_view"
+
+            <Spinner
+                android:id="@+id/select_movie_query"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/space_bigger"
                 app:queryHint="@string/search_movies"
-                android:theme="@style/Custom_SearchView"/>
+                android:theme="@style/Custom_SearchView"
+                android:background="@color/colorAccent"/>
 
             <ScrollView
+                android:id="@+id/home_scroll_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fillViewport="true">

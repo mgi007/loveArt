@@ -43,4 +43,15 @@
     <string name="input_list_name">Nombre de la lista</string>
     <string name="create_list">Crear</string>
     <string name="search_movies">Busca películas, series o programas de TV</string>
+    <string name="release_date">Fecha de estreno:</string>
+    <string name="original_language">Lenguaje original:</string>
+    <string name="vote_count">Número de votos:</string>
+    <string name="error_loading_popular">Error cargando las peliculas</string>
+    <string name="home">Home</string>
+    <string-array name="select_movie_query">
+        <item>Populares</item>
+        <item>Se estan reproduciendo ahora</item>
+        <item>Mejor Valoradas</item>
+        <item>Próximamente</item>
+    </string-array>
 </resources>

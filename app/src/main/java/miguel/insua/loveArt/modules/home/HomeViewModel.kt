@@ -1,10 +1,18 @@
 package miguel.insua.loveArt.modules.home
 
 import android.app.Application
-import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.internal.ContextUtils.getActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import miguel.insua.loveArt.api.TMDbService
 import miguel.insua.loveArt.application.App
 import miguel.insua.loveArt.model.Media
+import miguel.insua.loveArt.model.MediaResponse
 import miguel.insua.loveArt.modules.base.BaseViewModel
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class HomeViewModel(app: Application) : BaseViewModel(app) {
 
@@ -14,24 +22,20 @@ class HomeViewModel(app: Application) : BaseViewModel(app) {
 
     lateinit var adapter: HomeAdapter
 
+    val list: MutableList<Media> = mutableListOf<Media>()
+
+    var fragmentState: FragmentState = FragmentState.HOME
+
     fun refreshData() {
-        val list: MutableList<Media> = mutableListOf<Media>()
-        val media1: Media = Media("Control", "Daniel Simmons","Ficción","https://areajugones.sport.es/wp-content/uploads/2019/03/Control-nueva-car%C3%A1tula.png.webp", 3.5,2010)
-        val media2: Media = Media("Control", "Daniel Simmons","Ficción","https://areajugones.sport.es/wp-content/uploads/2019/03/Control-nueva-car%C3%A1tula.png.webp", 3.5,2010)
-        val media3: Media = Media("Control", "Daniel Simmons","Ficción","https://areajugones.sport.es/wp-content/uploads/2019/03/Control-nueva-car%C3%A1tula.png.webp", 3.5,2010)
-        val media4: Media = Media("Control", "Daniel Simmons","Ficción","https://areajugones.sport.es/wp-content/uploads/2019/03/Control-nueva-car%C3%A1tula.png.webp", 3.5,2010)
-        val media5: Media = Media("Control", "Daniel Simmons","Ficción","https://areajugones.sport.es/wp-content/uploads/2019/03/Control-nueva-car%C3%A1tula.png.webp", 3.5,2010)
-        val media6: Media = Media("Control", "Daniel Simmons","Ficción","https://areajugones.sport.es/wp-content/uploads/2019/03/Control-nueva-car%C3%A1tula.png.webp", 3.5,2010)
-        val media7: Media = Media("Control", "Daniel Simmons","Ficción","https://areajugones.sport.es/wp-content/uploads/2019/03/Control-nueva-car%C3%A1tula.png.webp", 3.5,2010)
-        list.add(media1)
-        list.add(media2)
-        list.add(media3)
-        list.add(media4)
-        list.add(media5)
-        list.add(media6)
-        list.add(media7)
         adapter.setListData(list)
         adapter.notifyDataSetChanged()
+    }
+
+    fun getRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl("https://api.themoviedb.org/3/movie/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
     }
 
 }

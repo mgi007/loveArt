@@ -11,7 +11,6 @@ import miguel.insua.loveArt.databinding.ActivityHomeBinding
 import miguel.insua.loveArt.modules.base.BaseActivity
 import miguel.insua.loveArt.modules.lists.ListsFragment
 import miguel.insua.loveArt.modules.main.MainActivity
-import org.jetbrains.anko.email
 
 class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>(
     HomeViewModel::class.java
@@ -19,7 +18,7 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>(
 
     lateinit var uid: String
 
-    var fragmentState: FragmentState = FragmentState.HOME
+    var toolbarInstance: Toolbar = Toolbar()
 
     override fun getLayoutRes(): Int {
         return R.layout.activity_home
@@ -32,16 +31,24 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         uid = intent.extras?.getString("uid").toString()
-        Toolbar().show(this, title = "Home", false)
-        if (fragmentState == FragmentState.HOME) {
+        if (viewModel.fragmentState == FragmentState.HOME) {
             navigator.addFragment(HomeFragment(), R.id.fragmentContainerHome)
-        } else if (fragmentState == FragmentState.LISTS) {
+            toolbarInstance.show(this, title = resources.getString(R.string.home), false)
+        } else if (viewModel.fragmentState == FragmentState.LISTS) {
             navigator.addFragment(ListsFragment(), R.id.fragmentContainerHome)
+            toolbarInstance.show(this, title = resources.getString(R.string.my_lists), false)
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.home_menu, menu)
+        when(viewModel.fragmentState) {
+            FragmentState.HOME -> {
+                menuInflater.inflate(R.menu.home_menu, menu)
+            }
+            FragmentState.LISTS -> {
+                menuInflater.inflate(R.menu.lists_menu, menu)
+            }
+        }
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -64,9 +71,9 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>(
     }
 
 
-    private fun goTo(fragmentToGo: FragmentState) {
+    private fun goTo(fragmentToGo: FragmentState?) {
 
-        when (fragmentState) {
+        when (viewModel.fragmentState) {
             FragmentState.HOME -> {
                 toolbar.menu.removeItem(R.id.my_lists)
                 toolbar.menu.removeItem(R.id.log_out)
@@ -81,14 +88,22 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>(
             FragmentState.HOME -> {
                 menuInflater.inflate(R.menu.home_menu, toolbar.menu)
                 navigator.navigate(HomeFragment(), false, HomeFragment().LOG_TAG, container = R.id.fragmentContainerHome)
-                fragmentState = FragmentState.HOME
+                viewModel.fragmentState = FragmentState.HOME
+                toolbarInstance.show(this, title = resources.getString(R.string.home), false)
             }
             FragmentState.LISTS -> {
                 menuInflater.inflate(R.menu.lists_menu, toolbar.menu)
                 navigator.navigate(ListsFragment(), false, ListsFragment().LOG_TAG, container = R.id.fragmentContainerHome)
-                fragmentState = FragmentState.LISTS
+                viewModel.fragmentState = FragmentState.LISTS
+                toolbarInstance.show(this, title = resources.getString(R.string.my_lists), false)
             }
         }
 
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        goTo(null)
     }
 }
